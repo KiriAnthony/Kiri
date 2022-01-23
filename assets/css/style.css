@@ -1,0 +1,12 @@
+body {
+    margin: 0 50px 0 50px;
+}
+
+h1, section p, .button {
+    text-align: center;
+}
+
+header a, header p {
+    display: inline;
+    margin: 5px;
+}
