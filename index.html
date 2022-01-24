@@ -17,9 +17,31 @@
         <section>
             <!--include coding quiz header and descriptive paragraph-->
             <h1>Coding Quiz</h1>
-            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero fugit illo voluptate rerum id labore distinctio! Veritatis corrupti dignissimos cumque recusandae corporis velit natus, ratione debitis minima ad, reprehenderit quae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque cumque temporibus blanditiis maiores repudiandae doloribus impedit odit nisi minima, cum, eos quisquam consectetur molestiae facilis quam asperiores. Perspiciatis, asperiores aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, doloremque dolorem expedita voluptatibus dignissimos laborum earum inventore vitae quasi quisquam, quidem magnam. Dicta eaque alias nemo? Quas impedit ipsa aspernatur?</p>
+            <p class="paragraph">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero fugit illo voluptate rerum id labore distinctio! Veritatis corrupti dignissimos cumque recusandae corporis velit natus, ratione debitis minima ad, reprehenderit quae? Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque cumque temporibus blanditiis maiores repudiandae doloribus impedit odit nisi minima, cum, eos quisquam consectetur molestiae facilis quam asperiores. Perspiciatis, asperiores aut. Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto, doloremque dolorem expedita voluptatibus dignissimos laborum earum inventore vitae quasi quisquam, quidem magnam. Dicta eaque alias nemo? Quas impedit ipsa aspernatur?</p>
+            <div class="questions">
+                <div class="questionDisplay"></div>
+                <div class="possibleAnswersDisplay">
+                    <div>
+                        <input type="radio" name="answer" id="1">
+                        <label for="1"></label>
+                    </div>
+                    <div>
+                        <input type="radio" name="answer" id="2">
+                        <label for="2"></label>
+                    </div>
+                    <div>
+                        <input type="radio" name="answer" id="3">
+                        <label for="3"></label>
+                    </div>
+                    <div>
+                        <input type="radio" name="answer" id="4">
+                        <label for="4"></label>
+                    </div>
+                </div>
+            </div>
+            <p class="correct"></p>
             <div class="button">
-                <button class="btn" id="start-quiz">Start</button>
+                <div class = "btn"><button class="start-btn">Start</button></div>
             </div>
         </section>
         <script src="./assets/js/script.js"></script>
