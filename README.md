@@ -11,5 +11,7 @@
 * When game is over, enter initals and save the score
 
 ## Screenshot of Completed Website
+![screenshot](https://user-images.githubusercontent.com/94418477/150704058-cf7278ed-f758-4c13-9ab7-613bd475a648.png)
 
 ## Link to Live Website
+https://kirianthony.github.io/Kiris-Coding-Quiz/
