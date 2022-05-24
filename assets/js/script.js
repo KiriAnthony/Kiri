@@ -1,21 +1,21 @@
 var buttonSelection = document.querySelector(".button");
+// var submitButtonSelection = document.querySelector(".submit-btn");
 
 var questions = ["Q1", "Q2", "Q3", "Q4", "Q5"];
 var answerText = ["A1", "A2", "A3", "A4", "A5"];
 var additionalWrongAnswers = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10"];
 var scoreRecording = 0;
-var index = 0;
 
 // function to intake start button click, output timer start and call display question function
-var buttonClickHandler = function(event) {
+var buttonClickHandler = function (event) {
     if (event.target.matches(".start-btn")) {
         //start timer upon button click
         var timeLimit = 120;
-            
-        var countDown = setInterval(function() {
-            var minutes = Math.floor(timeLimit/60);
+
+        var countDown = setInterval(function () {
+            var minutes = Math.floor(timeLimit / 60);
             var seconds = timeLimit % 60;
-            if (seconds <10) {
+            if (seconds < 10) {
                 document.querySelector(".timer").innerHTML = minutes + ":0" + seconds;
             }
             else {
@@ -23,7 +23,7 @@ var buttonClickHandler = function(event) {
             }
             timeLimit--;
 
-            if(timeLimit <= 0) {
+            if (timeLimit <= 0) {
                 // update to end quiz when time reaches zero
                 clearInterval(countDown);
             }
@@ -45,14 +45,15 @@ var buttonClickHandler = function(event) {
         // hide paragraph
         document.querySelector(".paragraph").style.display = "none";
         // calling function to display first question
-        displayQuestion();
+        var index = 0;
+        displayQuestion(index);
     } else {
         getUserInput();
     }
 };
 
 // function to display question
-var displayQuestion = function() {
+var displayQuestion = function (index) {
     // display  question
     document.querySelector(".questionDisplay").textContent = questions[index];
     //create a checkbox including the corresponding correct answer and 3 other wrong answers
@@ -72,7 +73,7 @@ var displayQuestion = function() {
     }
 };
 
-var getUserInput = function() {
+var getUserInput = function () {
     const radioButtons = document.querySelectorAll("input[name='answer']");
     let selectedInput;
     for (const radioButton of radioButtons) {
@@ -80,14 +81,12 @@ var getUserInput = function() {
         console.log(selectedInput);
         break;
     }
-    // get user input when submit button is clicked
-    console.log(selectedInput);
     //var userInput = (select the checkbox that was clicked).text().trim();
     // call correctness function
 
     //isCorrect(userInput);
     // if (i = questions.length-1) {endQuiz()}
-    
+
 };
 // function to intake question answer selection, output correctness (boolean) & call next functions
 var isCorrect = function (userInput) {
@@ -107,15 +106,21 @@ var isCorrect = function (userInput) {
 };
 
 // function to end quiz (called when all questions answered or when timer runs out)
-var endQuiz = function() {
+var endQuiz = function () {
     // display textarea for user initals
     // save the scoreRecording as an object with user initials in localStorage
 };
 
-var randomNum = function(max) {
-    return Math.floor(Math.random()*max);
+var randomNum = function (max) {
+    return Math.floor(Math.random() * max);
+};
+
+var clickedBtn = function (event) {
+    if (event.target.matches(".submit-btn")) {
+        console.log("clicked submit");
+    }
 };
 
 buttonSelection.addEventListener("click", buttonClickHandler);
-//var submitSelection = document.querySelector(".submit");
-//submitSelection.addEventListener("click", getUserInput);
+buttonSelection.addEventListener("click", clickedBtn);
+// getUserInput
