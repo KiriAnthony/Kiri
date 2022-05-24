@@ -1,10 +1,12 @@
 var buttonSelection = document.querySelector(".button");
-// var submitButtonSelection = document.querySelector(".submit-btn");
 
 var questions = ["Q1", "Q2", "Q3", "Q4", "Q5"];
 var answerText = ["A1", "A2", "A3", "A4", "A5"];
 var additionalWrongAnswers = ["W1", "W2", "W3", "W4", "W5", "W6", "W7", "W8", "W9", "W10"];
 var scoreRecording = 0;
+let correctAnswerLocation;
+let selectedInput;
+let index;
 
 // function to intake start button click, output timer start and call display question function
 var buttonClickHandler = function (event) {
@@ -45,7 +47,7 @@ var buttonClickHandler = function (event) {
         // hide paragraph
         document.querySelector(".paragraph").style.display = "none";
         // calling function to display first question
-        var index = 0;
+        index = 0;
         displayQuestion(index);
     } else {
         getUserInput();
@@ -60,7 +62,7 @@ var displayQuestion = function (index) {
     document.querySelector(".questions").style.display = "inline";
     document.querySelector(".possibleAnswersDisplay").style.display = "block";
     // randomly select which radiobutton will contain correct answer
-    var correctAnswerLocation = randomNum(4);
+    correctAnswerLocation = randomNum(4);
     // run through for loop to add labels to radio buttons
     for (var i = 0; i < 4; i++) {
         if (i == correctAnswerLocation) {
@@ -75,31 +77,30 @@ var displayQuestion = function (index) {
 
 var getUserInput = function () {
     const radioButtons = document.querySelectorAll("input[name='answer']");
-    let selectedInput;
     for (const radioButton of radioButtons) {
-        selectedInput = radioButton.value;
-        console.log(selectedInput);
+        selectedInput = radioButton.id;
         break;
     }
     //var userInput = (select the checkbox that was clicked).text().trim();
     // call correctness function
 
-    //isCorrect(userInput);
+    isCorrect(selectedInput);
     // if (i = questions.length-1) {endQuiz()}
 
 };
 // function to intake question answer selection, output correctness (boolean) & call next functions
 var isCorrect = function (userInput) {
+    var q = index + 1;
     if (userInput === answerText[index]) {
         //increase score
         scoreRecording++;
         //display "correct"
-        document.querySelector(".correct").textContent = "You got question " + index + " correct!";
+        document.querySelector(".correct").textContent = "You got question " + q + " correct!";
         index++;
         displayQuestion();
     } else {
         //display "wrong"
-        document.querySelector(".correct").textContent = "You got question " + index + " wrong!";
+        document.querySelector(".correct").textContent = "You got question " + q + " wrong!";
         index++;
         displayQuestion();
     }
@@ -115,12 +116,4 @@ var randomNum = function (max) {
     return Math.floor(Math.random() * max);
 };
 
-var clickedBtn = function (event) {
-    if (event.target.matches(".submit-btn")) {
-        console.log("clicked submit");
-    }
-};
-
 buttonSelection.addEventListener("click", buttonClickHandler);
-buttonSelection.addEventListener("click", clickedBtn);
-// getUserInput
